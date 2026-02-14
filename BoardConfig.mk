@@ -18,16 +18,17 @@ BOARD_MOVE_GSI_AVB_KEYS_TO_VENDOR_BOOT := true
 
 # A/B
 AB_OTA_UPDATER := true
-AB_OTA_PARTITIONS += \
+B_OTA_PARTITIONS += \
     boot \
+    vendor_boot \
+    init_boot \
+    dtbo \
+    vbmeta \
     vbmeta_system \
     vbmeta_vendor \
     odm_dlkm \
     vendor_dlkm \
-    system \
-    product \
-    system_ext \
-    vendor
+    md1img
 
 # Architecture
 TARGET_ARCH := arm64
