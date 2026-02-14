@@ -1,0 +1,39 @@
+# super
+system          emmc     /dev/block/by-name/system          flags=display="System";backup=1;wipeingui;format
+system_ext      emmc     /dev/block/by-name/system_ext      flags=display="System Ext";backup=1;wipeingui;format
+vendor          emmc     /dev/block/by-name/vendor          flags=display="Vendor";backup=1;wipeingui;format
+product         emmc     /dev/block/by-name/product         flags=display="Product";backup=1;wipeingui;format
+vendor_dlkm     emmc     /dev/block/by-name/vendor_dlkm     flags=display="Vendor DLKM";backup=1
+odm_dlkm        emmc     /dev/block/by-name/odm_dlkm        flags=display="ODM DLKM";backup=1
+
+# Boot 
+boot            emmc     /dev/block/by-name/boot            flags=display="Boot";backup=1;wipeingui;flashimg=1;slotselect
+vendor_boot     emmc     /dev/block/by-name/vendor_boot     flags=display="Vendor Boot";backup=1;slotselect
+dtbo            emmc     /dev/block/by-name/dtbo            flags=backup=1;slotselect
+init_boot       emmc     /dev/block/by-name/init_boot       flags=backup=1;slotselect
+
+# data/imei
+userdata        f2fs     /dev/block/by-name/userdata        flags=display="Data";backup=1;wipeingui;format;encryptable=userdata;filesystem=f2fs
+metadata        ext4     /dev/block/by-name/metadata        flags=backup=1;display="Metadata";format
+persist         ext4     /dev/block/by-name/persist         flags=display="Persist";backup=1
+nvdata          ext4     /dev/block/by-name/nvdata          flags=display="NvData";backup=1
+nvcfg           ext4     /dev/block/by-name/nvcfg           flags=display="NvCfg";backup=1
+protect1        ext4     /dev/block/by-name/protect1        flags=display="Protect F";backup=1
+protect2        ext4     /dev/block/by-name/protect2        flags=display="Protect S";backup=1;subpartitionof=/protect1
+nvram           emmc     /dev/block/by-name/nvram           flags=display="NVRAM";backup=1
+proinfo         emmc     /dev/block/by-name/proinfo         flags=backup=1
+
+# modem
+md1img          emmc     /dev/block/by-name/md1img          flags=display="Modem";backup=1;slotselect
+tranfs          ext4     /dev/block/by-name/tranfs          flags=backup=1;format
+
+# MPT
+/devices/platform/soc/11240000.mmc*  auto  auto  flags=display="MicroSD";storage;wipeingui;removable
+/devices/platform/usb*               auto  vfat  flags=display="USB OTG";storage;wipeingui;removable
+
+# fpr
+frp            emmc  /dev/block/by-name/frp      flags=backup=1
+logo           emmc  /dev/block/by-name/logo     flags=backup=1
+expdb          emmc  /dev/block/by-name/expdb    flags=backup=1
+seccfg         emmc  /dev/block/by-name/seccfg    flags=backup=1
+misc           emmc  /dev/block/by-name/misc     flags=backup=1
